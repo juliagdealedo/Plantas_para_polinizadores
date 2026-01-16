@@ -1,6 +1,6 @@
 # **Proyecto Plantas Para Polinizadores (PPP)**
 
-Código para creas las fichas de las **Plantas silvestres para Abejas silvestres** de la *Asociación de Abejas Silvestres*.
+Código para crear las fichas de las **Plantas silvestres para Abejas silvestres** de la *Asociación de Abejas Silvestres*.
 
 ## Introducción
 
