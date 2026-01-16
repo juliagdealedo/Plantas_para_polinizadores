@@ -1,0 +1,164 @@
+---
+title: ''
+geometry: "left=2cm,right=2cm,top=1cm,bottom=1cm"
+output:
+  pdf_document: default
+header-includes:
+  - \usepackage{qrcode}
+  - \usepackage{ragged2e}
+  - \usepackage{mathpazo}
+  - \usepackage[table]{xcolor}
+  - \definecolor{pagebg}{HTML}{FFFDF5}
+  - \pagecolor{pagebg}
+params:
+  title: "" 
+  subtitle: ""
+  qr.i: ""
+  family.i: ""
+  taxon.i: ""
+  icon4.i: ""
+  vernaculo.i: ""
+  sinonimo.i: ""
+  descripcion.i: ""
+  edafico.i: ""
+  icon1.i: ""
+  icon2.i: ""
+  icon3.i: ""
+  suelo.i: ""
+  color.i: ""
+  floracion.i: ""
+  imagen.i: ""
+  habito.i: ""
+  clima.i: ""
+  credito.i: ""
+  species.i: ""
+  genus.i: ""
+---
+ 
+\pagenumbering{gobble}
+\noindent
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[height=.3\textwidth]{rpic.png}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\flushright
+\includegraphics[height=.3\textwidth]{lpic.png}
+\end{minipage}
+
+\begin{center}
+{\fontsize{25pt}{100pt}\selectfont\bfseries\color[HTML]{74943E} `r params$family.i`}\\
+\hfill
+
+{\fontsize{20pt}{100pt}\selectfont\emph{`r params$taxon.i`}}\\[0.5em]
+{\fontsize{12pt}{100pt}\selectfont Nombres comunes: `r params$vernaculo.i`}\\
+
+\begin{center}
+\includegraphics[height=.35\textwidth]{`r params$imagen.i`}\\
+{\fontsize{7pt}{10pt}\selectfont Foto: `r params$credito.i`}
+\end{center}
+
+\flushleft
+\noindent
+\begin{minipage}[c]{0.5\textwidth}
+\begin{center}
+{\fontsize{15pt}{100pt}\selectfont\bfseries ¿Cómo es esta planta?}\\
+\end{center}
+\RaggedRight
+\begin{itemize}
+{\item\fontsize{12pt}{100pt}\selectfont\bfseries Porte:}
+{\fontsize{12pt}{100pt}\selectfont\ `r params$habito.i`}
+{\item\fontsize{12pt}{100pt}\selectfont\bfseries Color de la flor:}
+{\fontsize{12pt}{100pt}\selectfont\ `r params$color.i`}
+{\item\fontsize{12pt}{100pt}\selectfont\bfseries Periodo de floración:}
+{\fontsize{12pt}{100pt}\selectfont\ `r params$floracion.i`}
+
+```{r, echo=FALSE, fig.align='center', fig.env=FALSE, out.height='40%'}
+seasons_levels <- c("invierno", "primavera", "verano", "otoño")
+    
+season_colors <- c(invierno   = "#ABD8D4", primavera  = "#B8D699", verano = "#F8E28C", otoño = "#F3C69B")
+    
+season_df = tibble(season = df_mod_or$floracion[i]) %>%
+    separate_rows(season, sep = "-") %>%
+    mutate(season = factor(season, levels = seasons_levels)) 
+
+season_df = tibble(season = factor(seasons_levels, levels = seasons_levels))%>%
+    mutate(present = season %in% season_df$season,
+           fill_col = ifelse(present, season_colors[as.character(season)], "#FFFDF5"),
+           season_label = str_to_sentence(as.character(season)))
+    
+ggplot(season_df, aes(x = season, y = 1)) +
+      geom_tile(
+        aes(fill = fill_col),
+        width  = 0.95, height = 0.15
+      ) +
+      geom_text(
+        aes(label = season_label),
+        family = "serif", fontface = "bold", size = 7, color = "black"
+      ) +
+      scale_fill_identity() +
+      scale_x_discrete(drop = FALSE) +
+      coord_cartesian(ylim = c(0.7, 1.3), expand = FALSE) +
+      theme_void() 
+
+```
+
+{\item\fontsize{12pt}{100pt}\selectfont\bfseries Clima:}
+{\fontsize{12pt}{100pt}\selectfont\ `r params$clima.i`}
+{\item\fontsize{12pt}{100pt}\selectfont\bfseries Suelo:}
+{\fontsize{12pt}{100pt}\selectfont\ `r params$suelo.i`}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.45\textwidth}
+\vfill
+\begin{center}
+
+{\fontsize{15pt}{100pt}\selectfont\bfseries ¿Dónde se distribuye?}\\
+\end{center}
+```{r, echo=FALSE, fig.align='center', fig.env=FALSE, out.width='80%'}
+map_distribution(
+  genus = df_mod_or$genus[i],
+  species = df_mod_or$species[i],
+  size = 1.5, colour="#74943E", alpha=0.8)+
+  geom_sf(data = IberianPeninsula, fill = NA, linewidth=1, color="grey40") +
+  theme_void() +labs(title = NULL)
+```
+
+\end{minipage}
+
+\begin{flushleft}
+\begin{center}
+{\fontsize{15pt}{100pt}\selectfont\bfseries ¿Qué polinizadores atrae?}\\[0.5em]
+\end{center}
+\begin{minipage}[c]{0.15\textwidth}
+\centering
+\includegraphics[height=.8\textwidth]{`r params$icon1.i`}\\
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.15\textwidth}
+\centering
+\includegraphics[height=.8\textwidth]{`r params$icon2.i`}\\
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.15\textwidth}
+\centering
+\includegraphics[height=.8\textwidth]{`r params$icon3.i`}\\
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.15\textwidth}
+\centering
+\includegraphics[height=.8\textwidth]{`r params$icon4.i`}\\
+\end{minipage}
+
+\end{flushleft}
+
+\vfill
+\begin{center}
+{\fontsize{12pt}{100pt}\selectfont\bfseries `r params$subtitle`}\\
+\vfill
+\flushright
+
+\end{center}
+
+\end{center}
+\pagebreak
