@@ -32,3 +32,5 @@ Ah, y esto son solo unas ideas, hay muchas más especies de plantas que puedes u
 
 > **Foto de la portada**: Curro Molina.
 
+Renderizado con labeleR
+
