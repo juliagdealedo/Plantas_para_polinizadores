@@ -152,7 +152,7 @@ crear_ficha(
 # 7. Combine all generated PDFs into one
 # ============================================================
 
-output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_4"
+output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_5"
 
 pdf_files <- list.files(
   path = output_dir,
