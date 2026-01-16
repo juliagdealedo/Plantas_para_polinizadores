@@ -20,9 +20,10 @@ library(R.utils)
 library(ggplot2)
 library(stringr)
 library(pdftools)
-
+library(here)
+here()
 # Custom functions used by labeleR templates
-source("fichas_functions.R")
+source("Codigo/fichas_functions.R")
 
 
 # ============================================================
@@ -96,6 +97,10 @@ df_sp$icon4 <- ifelse(
 # 5. Join with Flora Iberica presence data
 # ============================================================
 
+present_flora = data.frame (especie=df_sp$especie, 
+                            present = is_present(genus = df_sp$genus, 
+                                                 species = df_sp$species))
+
 df_mod_original <- present_flora %>%
   left_join(df_sp, by = "especie") %>%
   filter(present != FALSE)
@@ -106,11 +111,11 @@ df_sp[df_sp == ""] <- NA
 # Normalize selected text fields
 df_mod_original <- df_mod_original %>%
   mutate(across(
-    c(porte, flor, color, requisito_clima, requisito_suelo),
+    c(porte, flor, color_categorico, requisito_clima, requisito_suelo),
     tolower
   ))
 
-df_mod_or <- df_mod_original[1,]
+df_mod_or <- df_mod_original
 
 # ============================================================
 # 6. Create PDF panels with labeleR
@@ -121,8 +126,8 @@ crear_ficha(
   path = "labeleR_output_5",
   filename = "fichas",
   subtitle = "Plantas para polinizadores",
-  lpic = "lpic.png",
-  rpic = "rpic.png",
+  lpic = "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/lpic.png",
+  rpic = "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/rpic.png",
   imagen.column = "imagen",
   credito.column = "author_contribution",
   family.column = "familia",
@@ -130,7 +135,7 @@ crear_ficha(
   species.column = "species",
   genus.column = "genus",
   vernaculo.column = "nombre_comun",
-  color.column = "color",
+  color.column = "color_categorico",
   floracion.column = "meses_floracion",
   habito.column = "porte",
   clima.column = "requisito_clima",
@@ -139,7 +144,7 @@ crear_ficha(
   icon2.column = "icon2",
   icon3.column = "icon3",
   icon4.column = "icon4",
-  template = "fichas2.Rmd"
+  template = "Codigo/fichas2.Rmd"
 )
 
 
