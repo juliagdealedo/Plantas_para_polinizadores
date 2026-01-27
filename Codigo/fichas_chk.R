@@ -115,7 +115,7 @@ df_mod_original <- df_mod_original %>%
     tolower
   ))
 
-df_mod_or <- df_mod_original
+df_mod_or <- df_mod_original[c(45,83),]
 
 # ============================================================
 # 6. Create PDF panels with labeleR
