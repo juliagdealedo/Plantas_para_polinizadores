@@ -2,6 +2,8 @@
 
 Código para crear las fichas de las **Plantas silvestres para Abejas silvestres** de la *Asociación de Abejas Silvestres*.
 
+![Eucera hispaliensis en Lavandula pedunculata. Foto: Curro Molina](/Codigo/Lanvandula_pedunculata.jpg)
+
 ## Introducción
 
 Una de las acciones de conservación más efectiva para ayudar a las abejas es plantar flores silvestres. Estas les darán alimento en forma de polen y néctar. Balcones, terrazas y jardines son espacios fáciles de revegetar, así como patios de colegio, lindes de campos de cultivo o descampados abandonados. Además de alimento para los polinizadores, las plantas ayudan a capturar carbono, mejoran el suelo y dan sombra ayudando a la regulación del clima.
@@ -22,7 +24,7 @@ Como esta explicación sigue siendo muy ambigua a la hora de decir qué puedo pl
 
 ## ¿Cómo elijo un buen conjunto de plantas?
 
-Empieza por filtrar por el tipo de planta que se adecua a tu espacio, ya sean árboles, arbustos o hierbas. Si puedes, combinar los tres portes es lo mejor. Selecciona el tipo de suelo y clima de tu región para asegurarte que las plantas se adecuan bien a tu zona. Luego lo ideal es elegir 2-3 especies para cada uno de los distintos periodos de floración y tipos de polinizadores (abejar, sírfidos, mariposas y escarabajos). En la guía tienes fotos de cada especie para que elijas las que más te gusten.
+Empieza por filtrar por el tipo de planta que se adecua a tu espacio, ya sean árboles, arbustos o hierbas. Si puedes, combinar los tres portes es lo mejor. Selecciona el tipo de suelo y clima de tu región para asegurarte que las plantas se adecuan bien a tu zona. Luego lo ideal es elegir 2-3 especies para cada uno de los distintos periodos de floración y tipos de polinizadores (abejas, sírfidos, mariposas y escarabajos). En la guía tienes fotos de cada especie para que elijas las que más te gusten.
 
 Ah, y esto son solo unas ideas, hay muchas más especies de plantas que puedes usar, si quieres sugerirnos alguna que te guste particularmente para que la añadamos, [escríbenos](mailto:%20info.abejas.silvestres@gmail.com).
 
