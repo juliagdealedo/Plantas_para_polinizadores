@@ -1,4 +1,4 @@
-# **Plantas silvestres para abejas silvestres**
+# **Plantas silvestres para Abejas silvestres**
 
 Código para crear las fichas del proyecto Plantas silvestres para Abejas silvestres de la *Asociación de Abejas Silvestres*.
 
