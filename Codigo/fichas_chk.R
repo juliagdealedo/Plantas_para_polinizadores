@@ -115,7 +115,7 @@ df_mod_original <- df_mod_original %>%
     tolower
   ))
 
-df_mod_or <- df_mod_original[c(45,83),]
+df_mod_or <- df_mod_original
 
 # ============================================================
 # 6. Create PDF panels with labeleR
@@ -164,3 +164,6 @@ pdf_combine(
   input  = pdf_files,
   output = file.path(output_dir, "archivo_final.pdf")
 )
+
+
+# gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf

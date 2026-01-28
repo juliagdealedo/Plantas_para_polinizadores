@@ -30,7 +30,7 @@ Para crear un espacio atractivo para polinizadores, empieza por elegir plantas q
 A continuación, elige 2–3 especies por cada estación (primavera, verano y otoño), de modo que siempre haya flores disponibles. También es importante pensar en los distintos grupos de polinizadores (abejas, sírfidos, mariposas y escarabajos), ya que cada uno tiene preferencias diferentes en cuanto a forma, color y accesibilidad de las flores.
 Y recuerda: estas son solo algunas sugerencias. Hay muchas otras plantas útiles y atractivas para polinizadores. Si tienes alguna especie favorita que te gustaría que incluyéramos en la guía, [escríbenos](mailto:%20info.abejas.silvestres@gmail.com) y la añadiremos.
 
-> **Crédito:** Esto ha sido posible gracias a Curro Molina, Julia G. de Aledo, Nerea Montes Pérez, María José Navarro-Ramos, Yaiza Sauquillo, Álvaro Pérez, Yaiza Sauquillo, Ignasi Bartomeus.
+> **Crédito:** Esto ha sido posible gracias a Curro Molina, Julia G. de Aledo, Nerea Montes Pérez, María José Navarro-Ramos, Yaiza Sauquillo, Álvaro Pérez-Gómez, Yaiza Sauquillo, Ignasi Bartomeus.
 
 > **Diseño de fichas y maquetación**: Julia G. de Aledo.
 
