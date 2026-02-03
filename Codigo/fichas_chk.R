@@ -115,6 +115,10 @@ df_mod_original <- df_mod_original %>%
     tolower
   ))
 
+df_mod_original$author_contribution
+unique(df_mod_original$author_contribution)
+colnames(df_mod_original)
+#df_mod_or <-df_mod_original %>% filter (author_contribution %in% c("Maria J. Navarro Ramos", "Ignacio Ramos-Gutiérrez", "Alejandro Alonso", "Julia G. de Aledo", "Álvaro Pérez Gómez", "Curro Molina", "María Valerio de Arana", "Sofía Carmona"))
 df_mod_or <- df_mod_original
 
 # ============================================================
@@ -153,7 +157,7 @@ crear_ficha(
 # ============================================================
 
 output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_5"
-
+output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/Plantas_para_polinizadores/labeleR_output_5"
 pdf_files <- list.files(
   path = output_dir,
   pattern = "\\.pdf$",
@@ -162,8 +166,9 @@ pdf_files <- list.files(
 
 pdf_combine(
   input  = pdf_files,
-  output = file.path(output_dir, "archivo_final.pdf")
+  output = file.path(output_dir, "nuevas_fotos.pdf")
 )
 
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf
 
 # gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf
