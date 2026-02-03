@@ -118,8 +118,8 @@ df_mod_original <- df_mod_original %>%
 df_mod_original$author_contribution
 unique(df_mod_original$author_contribution)
 colnames(df_mod_original)
-#df_mod_or <-df_mod_original %>% filter (author_contribution %in% c("Maria J. Navarro Ramos", "Ignacio Ramos-Gutiérrez", "Alejandro Alonso", "Julia G. de Aledo", "Álvaro Pérez Gómez", "Curro Molina", "María Valerio de Arana", "Sofía Carmona"))
-df_mod_or <- df_mod_original
+df_mod_or <-df_mod_original %>% filter (author_contribution %in% c("María J. Navarro Ramos", "Ignacio Ramos-Gutiérrez", "Alejandro Alonso", "Julia G. de Aledo", "Álvaro Pérez Gómez", "Curro Molina", "María Valerio de Arana", "Sofía Carmona"))
+#df_mod_or <- df_mod_original
 
 # ============================================================
 # 6. Create PDF panels with labeleR
@@ -157,7 +157,7 @@ crear_ficha(
 # ============================================================
 
 output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_5"
-output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/Plantas_para_polinizadores/labeleR_output_5"
+#output_dir <- "/Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/Plantas_para_polinizadores/labeleR_output_5"
 pdf_files <- list.files(
   path = output_dir,
   pattern = "\\.pdf$",
@@ -169,6 +169,6 @@ pdf_combine(
   output = file.path(output_dir, "nuevas_fotos.pdf")
 )
 
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf nuevas_fotos.pdf
 
 # gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf
