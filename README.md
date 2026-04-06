@@ -41,7 +41,8 @@ Descárgate aquí la versión completa, con más de 170 especies!
 También puedes echarle un vistazo a nuestra [web](https://abejas-silvestres.vercel.app/resources/plants-guide), donde encontrarás una tabla con toda esta información.
 
 ## Referencias
-Estas fichas han sido creadas en R, aquí puedes encontrar el [**código**](https://github.com/juliagdealedo/Plantas_para_polinizadores/blob/master/Codigo/fichas_chk.R) para crear las fichas del proyecto.\
+Estas fichas han sido creadas en R, aquí puedes encontrar el [**código**](https://github.com/juliagdealedo/Plantas_para_polinizadores/blob/master/Codigo/fichas_chk.R) para crear las fichas del proyecto.
+Se han utilizado las siguientes fuentes:
 
 -   Ramos-Gutierrez I, de Aledo JG, Mateo-Martín J, Rodríguez-Sánchez F (2025). labeleR: Automate the Production of Custom Labels, Badges, Certificates, and Other Documents. <https://EcologyR.github.io/labeleR/>.
 
