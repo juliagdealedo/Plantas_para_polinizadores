@@ -102,8 +102,17 @@ present_flora = data.frame (especie=df_sp$especie,
                                                  species = df_sp$species))
 
 df_mod_original <- present_flora %>%
-  left_join(df_sp, by = "especie") %>%
-  filter(present != FALSE)
+  left_join(df_sp, by = "especie") 
+
+df_mod_original <- df_mod_original %>%
+  mutate(species_map = ifelse(especie == "Salvia rosmarinus", "officinalis", species),
+         genus_map = ifelse(especie == "Salvia rosmarinus", "Rosmarinus", genus),
+         species_map = ifelse(especie == "Jacobaea minuta", "minutus", species_map),
+         genus_map = ifelse(especie == "Jacobaea minuta", "Senecio", genus_map))
+
+df_mod_original <- df_mod_original %>%
+  mutate(present = ifelse(especie == "Salvia rosmarinus", "TRUE", present),
+         present = ifelse(especie == "Jacobaea minuta", "TRUE", present))
 
 # Convert empty strings to NA
 df_sp[df_sp == ""] <- NA
@@ -115,11 +124,20 @@ df_mod_original <- df_mod_original %>%
     tolower
   ))
 
+is_present(genus="Senecio", species="minutus")
 df_mod_original$author_contribution
 unique(df_mod_original$author_contribution)
-colnames(df_mod_original)
-df_mod_or <-df_mod_original %>% filter (author_contribution %in% c("María J. Navarro Ramos", "Ignacio Ramos-Gutiérrez", "Alejandro Alonso", "Julia G. de Aledo", "Álvaro Pérez Gómez", "Curro Molina", "María Valerio de Arana", "Sofía Carmona"))
-#df_mod_or <- df_mod_original
+# colnames(df_mod_original)
+# df_mod_or <-df_mod_original[86,]
+
+df_mod_or <-df_mod_original %>% filter(especie %in% c("Vicia sativa"))
+map_distribution(
+  genus = df_mod_or$genus_map[1],
+  species = df_mod_or$species_map[1])
+df_mod_or <- df_mod_original[134:176,]
+head(df_mod_or)
+df_mod_or$nombre_comun <- gsub("\u200B", "", df_mod_or$nombre_comun)
+df_mod_or$author_contribution <- gsub("\u200B", "", df_mod_or$author_contribution)
 
 # ============================================================
 # 6. Create PDF panels with labeleR
@@ -168,7 +186,10 @@ pdf_combine(
   input  = pdf_files,
   output = file.path(output_dir, "nuevas_fotos.pdf")
 )
-
+gs -o test.pdf -sDEVICE=pdfwrite /Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_5/nuevas_fotos.pdf
+dir()
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf nuevas_fotos.pdf
 
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido3.pdf archivo_comprimido2.pdf
+juliag.dealedo$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf /Users/juliag.dealedo/ONE/Postdoc/Colaboraciones/beelab/labeleR_output_5/test.pdf
 # gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=archivo_comprimido2.pdf archivo_final.pdf

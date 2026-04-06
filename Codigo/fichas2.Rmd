@@ -116,12 +116,21 @@ ggplot(season_df, aes(x = season, y = 1)) +
 {\fontsize{15pt}{100pt}\selectfont\bfseries ¿Dónde se distribuye?}\\
 \end{center}
 ```{r, echo=FALSE, fig.align='center', fig.env=FALSE, out.width='80%'}
+if (df_mod_or$present[i]) {
 map_distribution(
-  genus = df_mod_or$genus[i],
-  species = df_mod_or$species[i],
+  genus = df_mod_or$genus_map[i],
+  species = df_mod_or$species_map[i],
   size = 1.5, colour="#74943E", alpha=0.8)+
   geom_sf(data = IberianPeninsula, fill = NA, linewidth=1, color="grey40") +
   theme_void() +labs(title = NULL)
+} else { 
+    ggplot() +
+    theme_void() +
+    annotate("text", x = 0, y = 0,
+             label = "No tenemos mapa disponible para esta especie",
+             size = 5) +
+    xlim(-1, 1) + ylim(-1, 1)
+  }
 ```
 
 \end{minipage}
