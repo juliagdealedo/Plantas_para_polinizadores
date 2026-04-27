@@ -130,10 +130,24 @@ unique(df_mod_original$author_contribution)
 # colnames(df_mod_original)
 # df_mod_or <-df_mod_original[86,]
 
-df_mod_or <-df_mod_original %>% filter(especie %in% c("Vicia sativa"))
+df_mod_or <-df_mod_original %>% filter(especie %in% c("Origanum vulgare"))
+
 map_distribution(
   genus = df_mod_or$genus_map[1],
   species = df_mod_or$species_map[1])
+
+map_distribution(
+  genus = "Origanum",
+  species = "vulgare", 
+  subspecies = "virens")
+
+ori <- get_distribution("Origanum", "vulgare", sf = TRUE)
+
+grep("cat|barc|giron|lleid|tarr", ori |> sf::st_drop_geometry() |> unlist(),
+     ignore.case = TRUE, value = TRUE)
+
+ map_distribution(genus="Origanum", species="vulgare", taxo.level="subspecies")
+
 df_mod_or <- df_mod_original[134:176,]
 head(df_mod_or)
 df_mod_or$nombre_comun <- gsub("\u200B", "", df_mod_or$nombre_comun)
