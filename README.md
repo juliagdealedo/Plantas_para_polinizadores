@@ -52,7 +52,7 @@ Se han utilizado las siguientes fuentes:
 
 ## Crédito
 
-> **Crédito:** Esto ha sido posible gracias a Curro Molina, Julia G. de Aledo, Nerea Montes Pérez, María José Navarro-Ramos, Yaiza Sauquillo, Álvaro Pérez-Gómez, Yaiza Sauquillo, Ignasi Bartomeus.
+> **Crédito:** Esto ha sido posible gracias a Curro Molina, Julia G. de Aledo, Nerea Montes Pérez, María José Navarro-Ramos, Álvaro Pérez-Gómez, Yaiza Sauquillo, Ignasi Bartomeus.
 
 > **Diseño de fichas y maquetación**: Julia G. de Aledo.
 
